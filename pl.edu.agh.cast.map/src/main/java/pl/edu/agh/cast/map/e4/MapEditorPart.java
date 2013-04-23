@@ -1,24 +1,18 @@
 package pl.edu.agh.cast.map.e4;
 
-import java.util.concurrent.TimeUnit;
-
 import javax.annotation.PostConstruct;
 
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.e4.ui.di.Focus;
-import org.eclipse.gef.DefaultEditDomain;
 import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.ui.parts.GraphicalViewerImpl;
 import org.eclipse.swt.widgets.Composite;
 
-import pl.edu.agh.cast.map.config.PreferencesMapConfigurator;
-import pl.edu.agh.cast.map.driver.OpenStreetMapDriver;
 import pl.edu.agh.cast.map.editpart.MapEditPartsFactory;
 import pl.edu.agh.cast.map.editpart.MapScalableRootEditPart;
 import pl.edu.agh.cast.map.manager.MapManager;
 import pl.edu.agh.cast.map.model.MapDiagram;
-import pl.edu.agh.cast.map.provider.OpenStreetMapInternetProvider;
 import pl.edu.agh.cast.map.tool.MapPanningTool;
 
 public class MapEditorPart {
@@ -33,11 +27,6 @@ public class MapEditorPart {
 		viewer.setEditPartFactory(new MapEditPartsFactory());
 		viewer.setEditDomain(new EditDomain());
 		viewer.getControl().setBackground(ColorConstants.white);
-		
-		PreferencesMapConfigurator pmc = new PreferencesMapConfigurator();
-		System.out.println(pmc.memoryCacheLimit());
-		pmc.setMemoryCacheLimit(10);
-		System.out.println(pmc.memoryCacheLimit());
 		
 	}
 	
