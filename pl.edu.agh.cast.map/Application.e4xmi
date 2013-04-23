@@ -14,8 +14,8 @@
       </children>
     </mainMenu>
   </children>
-  <handlers xmi:id="_c8cS8IG7EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.timeline.e4.handlers.samplediagram.create" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.cast.map.e4.handler.OpenSampleMapHandler" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
-  <descriptors xmi:id="_bXeicIHKEeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.partdescriptor.editor" label="Map Editor" allowMultiple="true" closeable="true" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.cast.map.e4.MapEditorPart"/>
+  <handlers xmi:id="_c8cS8IG7EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.timeline.e4.handlers.samplediagram.create" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.iisg.map.e4.handler.OpenSampleMapHandler" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
+  <descriptors xmi:id="_bXeicIHKEeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.partdescriptor.editor" label="Map Editor" allowMultiple="true" closeable="true" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.iisg.map.e4.MapEditorPart"/>
   <commands xmi:id="_fyZo4IG6EeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.commands.samplediagram.create" commandName="Create a sample diagram"/>
   <addons xmi:id="_zd0KwYGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_zd0KwoGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>

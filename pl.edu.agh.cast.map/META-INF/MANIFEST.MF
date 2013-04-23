@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Map
 Bundle-SymbolicName: pl.edu.agh.cast.map;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: pl.edu.agh.cast.map.Activator
+Bundle-Activator: pl.edu.agh.iisg.map.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.di;bundle-version="1.2.0",
