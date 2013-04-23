@@ -3,6 +3,8 @@ package pl.edu.agh.cast.map.driver;
 import org.eclipse.swt.graphics.ImageData;
 
 import pl.edu.agh.cast.common.collections.Pair;
+import pl.edu.agh.cast.map.storage.ITileStorageStrategy;
+import pl.edu.agh.cast.map.storage.TileStorageStrategy;
 
 
 // TODO: Auto-generated Javadoc
@@ -13,6 +15,8 @@ import pl.edu.agh.cast.common.collections.Pair;
  */
 public class OpenStreetMapDriver implements IMapDriver {
 
+    private static final String PNG_EXT = "png";
+    
     /**
      * Dimension of map's tiles.
      */
@@ -21,7 +25,7 @@ public class OpenStreetMapDriver implements IMapDriver {
     /**
      * Tile storage strategy.
      */
-    // private ITileStorageStrategy tileStorageStrategy;
+     private ITileStorageStrategy tileStorageStrategy;
 
     /** The converter. */
     private IMapCoordinateConverter converter = new MercatorProjectionCoordinateConverter(TILE_DIMENSION);
@@ -64,8 +68,8 @@ public class OpenStreetMapDriver implements IMapDriver {
      * Constructor.
      */
     public OpenStreetMapDriver() {
-       
-
+        tileStorageStrategy = new TileStorageStrategy(new String[] { "OpenStreetMapDriver" }, //$NON-NLS-1$
+                PNG_EXT, null, null);
 
     }
 
@@ -135,10 +139,10 @@ public class OpenStreetMapDriver implements IMapDriver {
      *
      * @see pl.edu.agh.cast.map.editor.driver.IMapDriver#getTileStorageStrategy()
      */
-//    @Override
-//    public ITileStorageStrategy getTileStorageStrategy() {
-//        return tileStorageStrategy;
-//    }
+    @Override
+    public ITileStorageStrategy getTileStorageStrategy() {
+        return tileStorageStrategy;
+    }
 
     /**
      * {@inheritDoc}

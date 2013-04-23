@@ -2,36 +2,39 @@ package pl.edu.agh.cast.map.config;
 
 import pl.edu.agh.cast.map.provider.IMapProvider;
 
+
 public interface IMapConfigurator extends IMapConfigurationProvider {
 
-	// Disc cache
+    // Disc cache
 
-	void enableDiscCache(boolean enabled);
+    void enableDiscCache(boolean enabled);
 
-	void enableDiscCacheLimit(boolean enabled);
+    void enableDiscCacheLimit(boolean enabled);
 
-	/**
-	 * 
-	 * @param limit
-	 *            in MB
-	 */
-	void setDiscCacheLimit(int limit);
+    /**
+     * 
+     * @param limit
+     *            in MB
+     */
+    void setDiscCacheLimit(int limit);
 
-	// Memory cache
+    void setDiscCacheLocation(String location);
 
-	void enableMemoryCache(boolean enabled);
+    // Memory cache
 
-	/**
-	 * 
-	 * @param limit
-	 *            in MB
-	 */
-	void setMemoryCacheLimit(int limit);
+    void enableMemoryCache(boolean enabled);
 
-	// Map providers
-	
-	void addMapProvider(IMapProvider mapProvider);
-	
-	void removeMapProvider(IMapProvider mapProvider);
-	
+    /**
+     * 
+     * @param limit
+     *            in MB
+     */
+    void setMemoryCacheLimit(int limit);
+
+    // Map providers
+
+    void addMapProvider(IMapProvider mapProvider);
+
+    void removeMapProvider(IMapProvider mapProvider);
+
 }

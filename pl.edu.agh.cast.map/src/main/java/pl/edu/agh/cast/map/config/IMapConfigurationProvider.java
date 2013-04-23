@@ -12,6 +12,8 @@ public interface IMapConfigurationProvider {
 	
 	int discCacheLimit();
 	
+	String discCacheLocation();
+	
 	boolean memoryCacheEnabled();
 	
 	int memoryCacheLimit();

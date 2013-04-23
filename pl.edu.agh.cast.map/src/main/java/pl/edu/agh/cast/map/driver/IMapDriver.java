@@ -4,6 +4,7 @@ import org.eclipse.swt.graphics.ImageData;
 
 import pl.edu.agh.cast.common.IDisposable;
 import pl.edu.agh.cast.common.collections.Pair;
+import pl.edu.agh.cast.map.storage.ITileStorageStrategy;
 
 /**
  * Map driver is responsible for handling specified type of map (e.g. GoogleMap or OpenStreetMap). Map driver provides crucial information
@@ -66,6 +67,14 @@ public interface IMapDriver extends IDisposable, IMapCoordinateConverter {
      * @return Default zoom level.
      */
     int getDefaultZoomLevel();
+
+    /**
+     * Returns tile storage strategy for driver. See the API of {@link ITileStorageStrategy} to learn more.
+     * 
+     * @return Tile storage strategy for driver.
+     * @see ITileStorageStrategy
+     */
+    ITileStorageStrategy getTileStorageStrategy();
 
     /**
      * Returns image representing tile that is not available. If <code>null</code> than default image will be used.

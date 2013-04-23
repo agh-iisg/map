@@ -2,7 +2,9 @@ package pl.edu.agh.cast.map.manager;
 
 import org.eclipse.swt.graphics.ImageData;
 
+import pl.edu.agh.cast.map.cache.DiscMapCache;
 import pl.edu.agh.cast.map.cache.MemoryMapCache;
+import pl.edu.agh.cast.map.config.IMapConfigurationProvider;
 import pl.edu.agh.cast.map.driver.IMapDriver;
 import pl.edu.agh.cast.map.provider.IAsynchronousTileResultListener;
 import pl.edu.agh.cast.map.provider.IMapProvider;
@@ -27,7 +29,7 @@ public interface IMapManager  {
      *            Ordered list of provider descriptors that keeps providers (and describing information) that are responsible for providing
      *            map's tiles.
      */
-    void initialize(IMapDriver mapDriver, IMapProvider mapProvider, MemoryMapCache memoryCache);
+    void initialize(IMapDriver mapDriver, IMapProvider mapProvider, IMapConfigurationProvider config);
 
     /**
      * Return tile described by 3 parameters - map's zoom level, tile's column number and tile's row number.<br/>
