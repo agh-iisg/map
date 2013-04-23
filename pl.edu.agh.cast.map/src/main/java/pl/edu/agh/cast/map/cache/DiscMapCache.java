@@ -6,8 +6,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -16,6 +17,7 @@ import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.ImageLoader;
 
 import pl.edu.agh.cast.map.config.IMapConfigurationProvider;
+import pl.edu.agh.cast.map.driver.OpenStreetMapDriver;
 import pl.edu.agh.cast.map.storage.DiscStorageStrategy;
 import pl.edu.agh.cast.map.storage.IDiscStorageStrategy;
 import pl.edu.agh.cast.map.storage.ITileStorageStrategy;
@@ -56,9 +58,14 @@ public class DiscMapCache implements IMapCache {
      * @param storageLimit
      *            Limit of storage (In MB). If -1 than there is no storage limit.
      */
-    public DiscMapCache(IDiscStorageStrategy storageStrategy, int storageLimit) {
+    public DiscMapCache(IDiscStorageStrategy storageStrategy, int storageLimit, IMapConfigurationProvider config) {
         this.storageStrategy = storageStrategy;
         this.storageLimit = storageLimit;
+        
+        // TODO: another hard reference to OSM -> only OSM maps will be counted by DiscCacheSizeObtainer
+        IDiscStorageStrategy discStorageStrategy = createDiscStorageStrategy(new OpenStreetMapDriver().getTileStorageStrategy(), config);
+        // count current storage
+        new DiscCacheSizeObtainer(Collections.singleton(discStorageStrategy)).run();
     }
 
     // BEGIN API Methods
@@ -95,7 +102,7 @@ public class DiscMapCache implements IMapCache {
             IDiscStorageStrategy discStorageStrategy = createDiscStorageStrategy(tileStorageStrategy, config);
             boolean limitEnabled = config.discCacheLimitEnabled();
             int storageLimit = config.discCacheLimit();
-            result = new DiscMapCache(discStorageStrategy, limitEnabled ? storageLimit : -1);
+            result = new DiscMapCache(discStorageStrategy, limitEnabled ? storageLimit : -1, config);
         }
 
         return result;
@@ -202,7 +209,7 @@ public class DiscMapCache implements IMapCache {
         /**
          * Tiles storage strategy.
          */
-        private List<IDiscStorageStrategy> storageStrategies;
+        private Collection<IDiscStorageStrategy> storageStrategies;
 
         /**
          * Constructor.
@@ -210,7 +217,7 @@ public class DiscMapCache implements IMapCache {
          * @param storageStrategy
          *            Tiles storage strategy.
          */
-        public DiscCacheSizeObtainer(List<IDiscStorageStrategy> storageStrategies) {
+        public DiscCacheSizeObtainer(Collection<IDiscStorageStrategy> storageStrategies) {
             this.storageStrategies = storageStrategies;
         }
 
@@ -245,7 +252,7 @@ public class DiscMapCache implements IMapCache {
                 }
             }
 
-            currentStorage = new Long(storage);
+            currentStorage = storage;
         }
 
     }
