@@ -18,6 +18,9 @@ import org.eclipse.swt.widgets.Display;
 
 import pl.edu.agh.cast.common.IDisposable;
 import pl.edu.agh.cast.common.collections.Pair;
+import pl.edu.agh.cast.map.cache.IMapCache;
+import pl.edu.agh.cast.map.cache.MemoryMapCache;
+import pl.edu.agh.cast.map.config.PreferencesMapConfigurator;
 import pl.edu.agh.cast.map.driver.IMapDriver;
 import pl.edu.agh.cast.map.driver.OpenStreetMapDriver;
 import pl.edu.agh.cast.map.provider.IAsynchronousTileResultListener;
@@ -217,9 +220,9 @@ public final class MapManager implements IMapManager, IDisposable {
 
             if (result != null) {
                 // Learn memory cache
-//                if (memoryCache != null && cachingEnabled) {
-//                    memoryCache.saveTile(zoom, column, row, result);
-//                }
+                if (memoryCache != null && cachingEnabled) {
+                    memoryCache.saveTile(zoom, column, row, result);
+                }
             } else {
                 // Obtain "No tile" tile.
                 result = getNoTile();
@@ -286,7 +289,7 @@ public final class MapManager implements IMapManager, IDisposable {
     /**
      * Fast memory cache that is requested for tiles synchronously in UI thread.
      */
-//    private MemoryMapCache memoryCache;
+    private MemoryMapCache memoryCache;
 
     /**
      * Disc cache that is requested for tiles asynchronously in new thread.
@@ -391,7 +394,7 @@ public final class MapManager implements IMapManager, IDisposable {
      *      java.util.LinkedList)
      */
     @Override
-    public void initialize(IMapDriver driver, IMapProvider provider) {
+    public void initialize(IMapDriver driver, IMapProvider provider, MemoryMapCache memoryCache) {
         if (driver == null)  {
             throw new IllegalArgumentException(String.format("One of input paramters is null: driver=[%s], caches=[], providers=[]", //$NON-NLS-1$
                     driver));
@@ -412,14 +415,7 @@ public final class MapManager implements IMapManager, IDisposable {
         mapProvider = provider;
 
         // Initialize caches
-//        for (IMapCache mapCache : caches) {
-//            Class<? extends IMapCache> clazz = mapCache.getClass();
-//            if (clazz.equals(MemoryMapCache.class)) {
-//                memoryCache = (MemoryMapCache)mapCache;
-//            } else if (clazz.equals(DiscMapCache.class)) {
-//                discCache = (DiscMapCache)mapCache;
-//            }
-//        }
+        this.memoryCache = memoryCache;
 
         //mapProviderDescriptors = providerDescriptors;
 
@@ -480,9 +476,9 @@ public final class MapManager implements IMapManager, IDisposable {
         ImageData result = null;
 
         // Try to obtain tile from map cache in UI thread.
-//        if (memoryCache != null) {
-//            result = memoryCache.getTile(zoom, column, row);
-//        }
+        if (memoryCache != null) {
+            result = memoryCache.getTile(zoom, column, row);
+        }
 
         // Try to obtain tile from disc cache or any of map providers (attempt will be made in new thread).
         if (result == null) {
@@ -568,7 +564,7 @@ public final class MapManager implements IMapManager, IDisposable {
     	private static MapManager createInstance() {
     		MapManager mapManager = new MapManager(10, 30, 50, TimeUnit.SECONDS);
     		mapManager.initialize(new OpenStreetMapDriver(),
-    				new OpenStreetMapInternetProvider());
+    				new OpenStreetMapInternetProvider(), MemoryMapCache.createMemoryMapCache(new PreferencesMapConfigurator()));
     		return mapManager;
     	}
     	
