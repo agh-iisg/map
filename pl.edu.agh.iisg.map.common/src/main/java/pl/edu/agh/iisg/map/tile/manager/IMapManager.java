@@ -3,8 +3,6 @@ package pl.edu.agh.iisg.map.tile.manager;
 import org.eclipse.swt.graphics.ImageData;
 
 import pl.edu.agh.iisg.map.config.IMapConfigurationProvider;
-import pl.edu.agh.iisg.map.tile.cache.DiscMapCache;
-import pl.edu.agh.iisg.map.tile.cache.MemoryMapCache;
 import pl.edu.agh.iisg.map.tile.driver.IMapDriver;
 import pl.edu.agh.iisg.map.tile.provider.IAsynchronousTileResultListener;
 import pl.edu.agh.iisg.map.tile.provider.IMapProvider;

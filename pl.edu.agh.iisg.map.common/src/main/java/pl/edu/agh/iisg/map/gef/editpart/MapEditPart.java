@@ -2,34 +2,22 @@ package pl.edu.agh.iisg.map.gef.editpart;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import org.eclipse.draw2d.BendpointConnectionRouter;
-import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.LayerConstants;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.gef.editpolicies.RootComponentEditPolicy;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 
 import pl.edu.agh.iisg.map.model.MapDiagram;
 import pl.edu.agh.iisg.map.model.internal.MapViewport;
-import pl.edu.agh.iisg.map.model.type.Coordinate;
-import pl.edu.agh.iisg.map.tile.driver.IMapDriver;
-import pl.edu.agh.iisg.map.tile.driver.MapKey;
 
 /**
  * Contents edit part for map diagrams.
@@ -217,12 +205,12 @@ public class MapEditPart extends AbstractGraphicalEditPart implements PropertyCh
             return;
         }
 
-        Display display = Display.getCurrent();
-        Rectangle bounds = display.getBounds();
+//        Display display = Display.getCurrent();
+//        Rectangle bounds = display.getBounds();
 
         // Area that should be visible
-        int coverX = (int)(bounds.width * 0.7);
-        int coverY = (int)(bounds.height * 0.7);
+//        int coverX = (int)(bounds.width * 0.7);
+//        int coverY = (int)(bounds.height * 0.7);
 
         // Obtain map nodes (only nodes will be considered in calculating zoom level)
 //        Collection<IMapNode> mapNodes = mapDataSet.getMapNodes();

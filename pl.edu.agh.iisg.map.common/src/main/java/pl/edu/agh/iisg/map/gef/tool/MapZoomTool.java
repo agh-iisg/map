@@ -8,7 +8,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.MouseWheelHelper;
 import org.eclipse.gef.tools.TargetingTool;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.ui.PlatformUI;
 
 import pl.edu.agh.iisg.map.model.MapDiagram;
 import pl.edu.agh.iisg.map.model.type.Coordinate;

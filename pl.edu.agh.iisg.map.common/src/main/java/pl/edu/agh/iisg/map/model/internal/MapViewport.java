@@ -1,7 +1,6 @@
 package pl.edu.agh.iisg.map.model.internal;
 
 import pl.edu.agh.iisg.map.model.MapDiagram;
-import pl.edu.agh.iisg.map.model.type.Coordinate;
 
 /**
  * Model for MapViewport.

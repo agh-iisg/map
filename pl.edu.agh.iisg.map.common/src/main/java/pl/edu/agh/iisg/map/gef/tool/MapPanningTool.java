@@ -6,7 +6,6 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.ui.PlatformUI;
 
 import pl.edu.agh.iisg.map.model.MapDiagram;
 import pl.edu.agh.iisg.map.model.type.Coordinate;
@@ -32,12 +31,6 @@ public class MapPanningTool extends PanningTool {
     /** Indicates if the tool */
     private boolean isPrimary;
 
-    /**
-     * Default constructor. Creates a primary tool.
-     */
-    private MapPanningTool() {
-        this(true);
-    }
 
     /**
      * Constructor. Allows to determine if is primary (works with any mouse button) or secondary (works only with middle mouse button or
