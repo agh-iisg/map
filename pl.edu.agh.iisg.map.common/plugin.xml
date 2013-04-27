@@ -2,18 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="Map_Editor_Product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="Map E4 Editor">
-         <property
-               name="appName"
-               value="Map E4 Editor">
-         </property>
-      </product>
-   </extension>
-   <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
             class="pl.edu.agh.iisg.map.config.PreferencesMapConfigurator$DefualtValuesInitializer">
