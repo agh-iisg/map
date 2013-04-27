@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_zd0KwIGSEeKbEdS9uHvDsw" elementId="pl.edu.agh.cast.map.application">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_KAOnwIGTEeKbEdS9uHvDsw" elementId="pl.edu.agh.iisg.timeline.e4.trimmedwindow" selectedElement="_VyAzwIGTEeKbEdS9uHvDsw" label="Map Application" x="1" y="1" width="1200" height="800">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_VyAzwIGTEeKbEdS9uHvDsw" elementId="pl.edu.agh.iisg.timeline.e4.perspectivestack">
+      <children xsi:type="advanced:Perspective" xmi:id="_YERxUIGTEeKbEdS9uHvDsw" elementId="pl.edu.agh.cast.map.e4.perspective" label="Map Perspective">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_AyMkYIGzEeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.partsashcontainer">
+          <children xsi:type="basic:PartStack" xmi:id="_irAC8IGUEeKbEdS9uHvDsw" elementId="pl.edu.agh.cast.map.e4.partstack"/>
+        </children>
+      </children>
+    </children>
+    <mainMenu xmi:id="_MxojIIG5EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.timeline.e4.menu.main">
+      <children xsi:type="menu:Menu" xmi:id="_XgpDgIG5EeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.menu.map" label="Map" mnemonics="m">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_8uEOUIG3EeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.menuitem.samplediagram.create" label="Create a sample diagram" mnemonics="c" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
+      </children>
+    </mainMenu>
+  </children>
+  <handlers xmi:id="_c8cS8IG7EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.timeline.e4.handlers.samplediagram.create" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.iisg.map.e4.handler.OpenSampleMapHandler" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
+  <descriptors xmi:id="_bXeicIHKEeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.partdescriptor.editor" label="Map Editor" allowMultiple="true" closeable="true" contributionURI="bundleclass://pl.edu.agh.cast.map/pl.edu.agh.iisg.map.e4.MapEditorPart"/>
+  <commands xmi:id="_fyZo4IG6EeK5U7EUsy0Pcg" elementId="pl.edu.agh.cast.map.e4.commands.samplediagram.create" commandName="Create a sample diagram"/>
+  <addons xmi:id="_zd0KwYGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_zd0KwoGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_zd0Kw4GSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_zd0KxIGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_zd0KxYGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_zd0KxoGSEeKbEdS9uHvDsw" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
