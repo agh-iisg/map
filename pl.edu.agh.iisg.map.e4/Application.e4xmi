@@ -13,6 +13,13 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_8uEOUIG3EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.map.e4.menuitem.samplediagram.create" label="Create a sample diagram" mnemonics="c" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
       </children>
     </mainMenu>
+    <trimBars xmi:id="_d1JhsLDQEeK_3_wA1qX8OQ" elementId="pl.edu.agh.iisg.map.e4.trimbar.main">
+      <children xsi:type="menu:ToolBar" xmi:id="_eWXYYLDQEeK_3_wA1qX8OQ" elementId="pl.edu.agh.iisg.map.e4.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_f2bc8LDQEeK_3_wA1qX8OQ" elementId=".edu.agh.iisg.map.e4.toolbar.tools.panning" accessibilityPhrase="p" label="Panning" iconURI="platform:/plugin/pl.edu.agh.iisg.map.e4/images/cursor/hand_open.gif" contributionURI="bundleclass://pl.edu.agh.iisg.map.e4/pl.edu.agh.iisg.map.e4.handler.PanningToolHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_lPInALDQEeK_3_wA1qX8OQ" elementId=".edu.agh.iisg.map.e4.toolbar.tools.zoomToArea" accessibilityPhrase="a" label="Zoom to area" iconURI="platform:/plugin/pl.edu.agh.iisg.map.e4/images/zoom/zoom_to_selection_16x16.gif" contributionURI="bundleclass://pl.edu.agh.iisg.map.e4/pl.edu.agh.iisg.map.e4.handler.ZoomToAreaHandler"/>
+        <children xsi:type="menu:ToolBarSeparator" xmi:id="_8Za8ULDQEeK_3_wA1qX8OQ" elementId="pl.edu.agh.iisg.map.e4.toolbarseparator.0"/>
+      </children>
+    </trimBars>
   </children>
   <handlers xmi:id="_c8cS8IG7EeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.map.e4.handlers.samplediagram.create" contributionURI="bundleclass://pl.edu.agh.iisg.map.e4/pl.edu.agh.iisg.map.e4.handler.OpenSampleMapHandler" command="_fyZo4IG6EeK5U7EUsy0Pcg"/>
   <descriptors xmi:id="_bXeicIHKEeK5U7EUsy0Pcg" elementId="pl.edu.agh.iisg.map.e4.partdescriptor.editor" label="Map Editor" allowMultiple="true" closeable="true" contributionURI="bundleclass://pl.edu.agh.iisg.map.e4/pl.edu.agh.iisg.map.e4.part.MapEditorPart"/>
