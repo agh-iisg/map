@@ -22,6 +22,8 @@ public class MapEditorPaletteFactory {
         toolbar.add(entry);
         palette.setDefaultEntry(entry);
         
+        toolbar.add(new MapRectangleZoomToolEntry("Zoom to rectangle", "Zoom to rectangle"));
+        
         return toolbar;
         
     }
