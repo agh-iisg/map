@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Map
+Bundle-Name: Common classes for map components
 Bundle-SymbolicName: pl.edu.agh.iisg.map.common;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: pl.edu.agh.iisg.map.Activator

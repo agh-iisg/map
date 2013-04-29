@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Map Editor for Eclipse 3.x
+Bundle-SymbolicName: pl.edu.agh.iisg.map;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: pl.edu.agh.iisg.map.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.gef;bundle-version="3.9.0",
+ pl.edu.agh.iisg.map.common;bundle-version="1.0.0",
+ pl.edu.agh.cast.common;bundle-version="1.4.0",
+ org.eclipse.ui.views;bundle-version="3.6.100"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

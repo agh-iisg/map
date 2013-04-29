@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="pl.edu.agh.iisg.map.Map_Editor_Product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="pl.edu.agh.iisg.map.application"
+            name="Map Editor">
+      </product>
+   </extension>
+   <extension
+         id="pl.edu.agh.iisg.map.application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="pl.edu.agh.iisg.map.MapApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="pl.edu.agh.iisg.map.MapPerspective"
+            id="pl.edu.agh.iisg.map.perspective"
+            name="Map Perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="pl.edu.agh.iisg.map.editor.MapEditor"
+            default="false"
+            extensions="map"
+            id="pl.edu.agh.iisg.map.editor"
+            name="Map editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="pl.edu.agh.iisg.map.handler.CreateSampleMapDiagram"
+            id="pl.edu.agh.iisg.map.example.create"
+            name="Create a sample diagram">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="Map"
+               mnemonic="m">
+            <command
+                  commandId="pl.edu.agh.iisg.map.example.create"
+                  label="Open sample map"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

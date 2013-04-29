@@ -19,7 +19,7 @@ public abstract class AbstractInternetMapProvider extends AbstractMapProvider {
     /** Default retry attempts amount. */
     private static final int DEFAULT_RETRY_ATTEMPTS_AMOUNT = 1;
 
-    /** Minium retry attempts amount that can be set by user. */
+    /** Minimum retry attempts amount that can be set by user. */
     private static final int MIN_RETRY_ATTEMPTS_AMOUNT = 1;
 
     private int retryAttempts = 3;
