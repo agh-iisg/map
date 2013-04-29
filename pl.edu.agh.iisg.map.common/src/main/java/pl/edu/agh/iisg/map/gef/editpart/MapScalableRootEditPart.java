@@ -10,16 +10,13 @@ import org.eclipse.gef.MouseWheelHelper;
 import org.eclipse.gef.editparts.ScalableRootEditPart;
 
 import pl.edu.agh.iisg.map.gef.tool.MapZoomTool;
-import pl.edu.agh.iisg.map.model.MapDiagram;
 import pl.edu.agh.iisg.map.tile.manager.MapManager;
 
 /**
- * Implementation of {@link org.eclipse.gef.RootEditPart}.
- * <code>MapScalableRootEditPart</code> provides additional
- * <code>Printable Layer</code> named as <code>Map Tool Layer</code> which
- * stores figures of {@link MapViewportEditPart} . This layer has been
- * introduced due to the fact that {@link MapViewportEditPart}'s figures should
- * be drawn on the top layer to cover nodes and connections.
+ * Implementation of {@link org.eclipse.gef.RootEditPart}. <code>MapScalableRootEditPart</code> provides additional
+ * <code>Printable Layer</code> named as <code>Map Tool Layer</code> which stores figures of {@link MapViewportEditPart} . This layer has
+ * been introduced due to the fact that {@link MapViewportEditPart}'s figures should be drawn on the top layer to cover nodes and
+ * connections.
  * 
  * <P>
  * Actual structure of <code>Printable layers</code>:
@@ -45,58 +42,59 @@ import pl.edu.agh.iisg.map.tile.manager.MapManager;
 
 public class MapScalableRootEditPart extends ScalableRootEditPart {
 
-	/**
-	 * Name of additional <code>Map Tool Layer</code> that keeps
-	 * {@link MapViewportEditPart}'s figures's.
-	 */
-	public static final String MAP_TOOL_LAYER = "Map Tool Layer"; //$NON-NLS-1$
+    /**
+     * Name of additional <code>Map Tool Layer</code> that keeps {@link MapViewportEditPart}'s figures's.
+     */
+    public static final String MAP_TOOL_LAYER = "Map Tool Layer"; //$NON-NLS-1$
 
-	/**
-	 * Name of the additional <code>Label layer</code> that keeps labels for
-	 * distance tool.
-	 */
-	public static final String LABEL_LAYER = "Label layer"; //$NON-NLS-1$
+    /**
+     * Name of the additional <code>Label layer</code> that keeps labels for distance tool.
+     */
+    public static final String LABEL_LAYER = "Label layer"; //$NON-NLS-1$
 
-	/**
-	 * Label layer. Used by distance tool.
-	 * 
-	 */
-	final class LabelLayer extends Layer {
-		private LabelLayer() {
-			setEnabled(false);
-		}
+    /**
+     * Label layer. Used by distance tool.
+     * 
+     */
+    final class LabelLayer extends Layer {
+        private LabelLayer() {
+            setEnabled(false);
+        }
 
-		@Override
-		public Dimension getPreferredSize(int wHint, int hHint) {
-			Rectangle rect = new Rectangle();
-			for (int i = 0; i < getChildren().size(); i++) {
-				rect.union(((IFigure) getChildren().get(i)).getBounds());
-			}
-			return rect.getSize();
-		}
-	}
+        @Override
+        public Dimension getPreferredSize(int wHint, int hHint) {
+            Rectangle rect = new Rectangle();
+            for (int i = 0; i < getChildren().size(); i++) {
+                rect.union(((IFigure)getChildren().get(i)).getBounds());
+            }
+            return rect.getSize();
+        }
+    }
 
-	@Override
-	protected LayeredPane createPrintableLayers() {
-		LayeredPane printableLayer = super.createPrintableLayers();
-		Layer layer = new Layer();
-		layer.setLayoutManager(new FreeformLayout());
-		printableLayer.add(layer, MAP_TOOL_LAYER);
+    @Override
+    protected LayeredPane createPrintableLayers() {
+        LayeredPane printableLayer = super.createPrintableLayers();
+        Layer layer = new Layer();
+        layer.setLayoutManager(new FreeformLayout());
+        printableLayer.add(layer, MAP_TOOL_LAYER);
 
-		LabelLayer labelLayer = new LabelLayer();
-		printableLayer.add(labelLayer, LABEL_LAYER);
+        LabelLayer labelLayer = new LabelLayer();
+        printableLayer.add(labelLayer, LABEL_LAYER);
 
-		return printableLayer;
-	}
+        return printableLayer;
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public Object getAdapter(Class adapter) {
-		if (adapter == MouseWheelHelper.class) {
-			return new MapZoomTool(MapManager.getInstance().getMapDriver(),
-					(MapDiagram) getModel());
-		}
-		return super.getAdapter(adapter);
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public Object getAdapter(Class adapter) {
+        if (adapter == MouseWheelHelper.class) {
+            return new MapZoomTool();
+        }
+        return super.getAdapter(adapter);
+    }
+    
+    public MapManager getCurrentMapManager() {
+        return MapManager.getInstance();
+    }
 
 }

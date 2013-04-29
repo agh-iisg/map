@@ -4,12 +4,10 @@ import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.tools.SelectionTool;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-import pl.edu.agh.iisg.map.Activator;
+import pl.edu.agh.iisg.map.util.Images;
 
 /**
  * A subclass of the SelectionTool that allows panning by holding down the space bar.
@@ -20,26 +18,14 @@ public class PanningTool extends SelectionTool implements DragTracker {
     private Point viewLocation;
 
     /**
-     * Image descriptor for open hand icon.
-     */
-    public static final ImageDescriptor GRAB_OPEN_16X16 = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-            "images/cursor/hand_open.gif"); //$NON-NLS-1$
-
-    /**
-     * Image descriptor for close hand icon.
-     */
-    public static final ImageDescriptor GRAB_CLOSED_16X16 = AbstractUIPlugin.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-            "images/cursor/hand_closed.gif"); //$NON-NLS-1$
-
-    /**
      * Open grab cursor.
      */
-    protected static final Cursor GRAB_OPEN_CURSOR = new Cursor(Display.getDefault(), GRAB_OPEN_16X16.getImageData(), 0, 0);
+    protected static final Cursor GRAB_OPEN_CURSOR = new Cursor(Display.getDefault(), Images.GRAB_OPEN_16X16.getImageData(), 0, 0);
 
     /**
      * Closed grab cursor.
      */
-    protected static final Cursor GRAB_CLOSED_CURSOR = new Cursor(Display.getDefault(), GRAB_CLOSED_16X16.getImageData(), 0, 0);
+    protected static final Cursor GRAB_CLOSED_CURSOR = new Cursor(Display.getDefault(), Images.GRAB_CLOSED_16X16.getImageData(), 0, 0);
 
     /**
      * Constructor.

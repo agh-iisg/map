@@ -13,7 +13,6 @@ import pl.edu.agh.iisg.map.gef.editpart.MapEditPartsFactory;
 import pl.edu.agh.iisg.map.gef.editpart.MapScalableRootEditPart;
 import pl.edu.agh.iisg.map.gef.tool.MapPanningTool;
 import pl.edu.agh.iisg.map.model.MapDiagram;
-import pl.edu.agh.iisg.map.tile.manager.MapManager;
 
 public class MapEditorPart {
 
@@ -36,9 +35,7 @@ public class MapEditorPart {
 
     public void setDiagram(MapDiagram diagram) {
         getEditPartViewer().setContents(diagram);
-        // / TODO: remove from here mapManager
-        MapManager mapManager = MapManager.getInstance();
-        getEditPartViewer().getEditDomain().setActiveTool(new MapPanningTool(mapManager.getMapDriver(), diagram, true));
+        getEditPartViewer().getEditDomain().setActiveTool(new MapPanningTool());
 
     }
 

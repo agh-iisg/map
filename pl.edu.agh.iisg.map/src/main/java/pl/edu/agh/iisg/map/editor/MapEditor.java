@@ -11,13 +11,14 @@ import org.eclipse.swt.widgets.Composite;
 
 import pl.edu.agh.iisg.map.gef.editpart.MapEditPartsFactory;
 import pl.edu.agh.iisg.map.gef.editpart.MapScalableRootEditPart;
+import pl.edu.agh.iisg.map.gef.palette.MapEditorPaletteFactory;
 import pl.edu.agh.iisg.map.gef.tool.MapPanningTool;
 import pl.edu.agh.iisg.map.model.MapDiagram;
-import pl.edu.agh.iisg.map.tile.manager.MapManager;
 
 public class MapEditor extends GraphicalEditorWithPalette {
 
     public static final String ID = "pl.edu.agh.iisg.map.editor";
+ 
     
     public MapEditor() {
         setEditDomain(new DefaultEditDomain(this));
@@ -50,15 +51,15 @@ public class MapEditor extends GraphicalEditorWithPalette {
         MapDiagram diagram = ((MapEditorInput)getEditorInput()).getDiagram();
         setDiagram(diagram);       
     }
-
     
     
     @Override
     protected PaletteRoot getPaletteRoot() {
-        // TODO Auto-generated method stub
-        return null;
+        return MapEditorPaletteFactory.create();
     }
-
+  
+    
+  
 
     @Override
     public void doSave(IProgressMonitor monitor) {
@@ -67,9 +68,9 @@ public class MapEditor extends GraphicalEditorWithPalette {
     
     public void setDiagram(MapDiagram map) {
         getGraphicalViewer().setContents(map);
-        // TODO: remove from here mapManager
-        MapManager mapManager = MapManager.getInstance();
-        getGraphicalViewer().getEditDomain().setActiveTool(new MapPanningTool(mapManager.getMapDriver(), map, true));
+        getGraphicalViewer().getEditDomain().setActiveTool(new MapPanningTool());
     }
+
+   
  
 }

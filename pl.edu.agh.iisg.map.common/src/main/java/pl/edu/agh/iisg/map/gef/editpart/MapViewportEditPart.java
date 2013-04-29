@@ -31,7 +31,6 @@ import pl.edu.agh.iisg.map.gef.tool.MapPanningTool;
 import pl.edu.agh.iisg.map.model.MapDiagram;
 import pl.edu.agh.iisg.map.model.internal.MapViewport;
 import pl.edu.agh.iisg.map.tile.manager.IMapManager;
-import pl.edu.agh.iisg.map.tile.manager.MapManager;
 
 /**
  * EditPart for MapViewport.
@@ -50,8 +49,6 @@ public class MapViewportEditPart extends AbstractGraphicalEditPart implements Pr
 	private IMapViewportFigure mapViewportFigure;
 
 	private List<Object> children;
-
-	private MapManager mapManager;
 
 	private MapPanningTool panningTool;
 
@@ -78,11 +75,7 @@ public class MapViewportEditPart extends AbstractGraphicalEditPart implements Pr
 
 	public MapViewportEditPart(MapViewport model) {
 		setModel(model);
-		// TODO: temporary
-		mapManager = MapManager.getInstance();
-		
-		panningTool = new MapPanningTool(mapManager.getMapDriver(), getModel()
-				.getDiagram(), false);
+		panningTool = new MapPanningTool(false);
 	}
 
 	@Override
@@ -110,6 +103,7 @@ public class MapViewportEditPart extends AbstractGraphicalEditPart implements Pr
 	public void deactivate() {
 		graphicalViewer.getControl().removeControlListener(controlListener);
 		getModel().getDiagram().removePropertyChangeListener(this);
+		super.deactivate();
 	}
 
 	@Override
@@ -182,7 +176,7 @@ public class MapViewportEditPart extends AbstractGraphicalEditPart implements Pr
 
 	private IMapManager getMapManager() {
 		// return MapManagers.getMapManager(getModel().getMapKey());
-		return mapManager;
+		return ((MapScalableRootEditPart)getRoot()).getCurrentMapManager();
 	}
 
 	private void refreshPosition() {

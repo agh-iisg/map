@@ -19,4 +19,5 @@ Export-Package: pl.edu.agh.iisg.map.config,
  pl.edu.agh.iisg.map.gef.figure,
  pl.edu.agh.iisg.map.gef.tool,
  pl.edu.agh.iisg.map.model,
- pl.edu.agh.iisg.map.tile.manager
+ pl.edu.agh.iisg.map.tile.manager,
+ pl.edu.agh.iisg.map.util
